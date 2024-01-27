@@ -14,4 +14,6 @@ Option 6: It cleans up .json and .txt files which don't have picture with same n
 Option 7: Goes through all pictures and collects all negative prompts which were used.
 
 
+Don't forget to set your folders.
+
 
