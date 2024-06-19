@@ -17,3 +17,12 @@ def get_current_tags(img_path=''):
         print(' !!! TOO MANY DOTS IN FILENAME !!! ', img_path )
         lbl_notif.config(text = '!!! TOO MANY DOTS IN FILENAME !!!')
         return
+    file1 = open(img_path[0] + '.txt', "r")
+    tags = file1.read()  # reads until EOF
+    file1.close()
+    try:
+        file1 = open(img_path[0].replace(img_group_path, pth+'moat/') + '.txt', "r")
+        tags_m = file1.read()  # reads until EOF
+        file1.close()
+    except:
+        tags_m = ''
