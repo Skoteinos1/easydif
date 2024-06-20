@@ -26,3 +26,9 @@ def get_current_tags(img_path=''):
         file1.close()
     except:
         tags_m = ''
+    try:
+        file1 = open(img_path[0].replace(img_group_path, pth+'convnext/') + '.txt', "r")
+        tags_c = file1.read()  # reads until EOF
+        file1.close()
+    except:
+        tags_c = ''
