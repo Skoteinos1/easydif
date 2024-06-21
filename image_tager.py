@@ -32,3 +32,9 @@ def get_current_tags(img_path=''):
         file1.close()
     except:
         tags_c = ''
+    try:
+        file1 = open(img_path[0].replace(img_group_path, pth2) + '.txt', "r")
+        tags_d = file1.read()  # reads until EOF
+        file1.close()
+    except:
+        tags_d = ''
