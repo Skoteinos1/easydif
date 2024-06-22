@@ -38,3 +38,13 @@ def get_current_tags(img_path=''):
         file1.close()
     except:
         tags_d = ''
+    probable_tags = last_pic_tags + ', ' + pre_last_pic_tags
+    probable_tags = probable_tags.split(',')
+    probable_tags = [x.strip() for x in probable_tags if x.strip()]
+    probable_tags = [x for x in probable_tags if x in tags or x in tags_m or x in tags_c]
+    probable_tags = ', '.join(probable_tags)
+    tags = ',PROBABLY,' + probable_tags + ',DONE,' + tags_d + ',MAIN,' + tags + ',MOAT,' + tags_m + ',CONVNEXT,' + tags_c + ',PREVIOUS,' + last_pic_tags + ', ' + pre_last_pic_tags
+    current_img_tags = tags
+    repl_dic = {'_': ' ', '\n': ',', 'multicolored hair': 'two-tone hair', 'tatoo on foot': 'tattoo on foot', 'tatoo on belly': 'tattoo on stomach', 'large breasts': '', 'medium breasts': '', 'realistic': '', 'photorealistic': ''}    
+    for words in repl_dic:
+        tags = tags.replace(words, repl_dic[words])
