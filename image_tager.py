@@ -48,3 +48,8 @@ def get_current_tags(img_path=''):
     repl_dic = {'_': ' ', '\n': ',', 'multicolored hair': 'two-tone hair', 'tatoo on foot': 'tattoo on foot', 'tatoo on belly': 'tattoo on stomach', 'large breasts': '', 'medium breasts': '', 'realistic': '', 'photorealistic': ''}    
     for words in repl_dic:
         tags = tags.replace(words, repl_dic[words])
+
+    tg_lst = tags.split(',')
+    tg_lst = [x.strip() for x in tg_lst if x.strip()]
+    tg_lst = list(dict.fromkeys(tg_lst))
+    tags = ', '.join(tg_lst) # list to string
