@@ -53,3 +53,12 @@ def get_current_tags(img_path=''):
     tg_lst = [x.strip() for x in tg_lst if x.strip()]
     tg_lst = list(dict.fromkeys(tg_lst))
     tags = ', '.join(tg_lst) # list to string
+
+    for word in special_tags:
+        tags = tags.replace(word, '\n'+word)  
+
+    tags += ', '
+    tag_suggest = ''
+    for tg in [ 'solo, ', 'brown eyes, ', 'two-tone hair, ', 'looking at viewer, ', 'watermark, ']:
+        if tg not in tags:
+            tag_suggest += tg
