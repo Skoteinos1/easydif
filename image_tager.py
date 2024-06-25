@@ -5,9 +5,17 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 from tkinter import filedialog
 import shutil
+import pickle
 
 img_x_size = 1270
 img_y_size = 920
+
+def save_pickle(file, data1):
+    if '.pkl' not in file:
+        file += '.pkl'
+    pkl_file = open(pth_pickl + file, 'wb')
+    pickle.dump(data1, pkl_file)
+    pkl_file.close()
 
 def get_current_tags(img_path=''):
     global current_img_tags
