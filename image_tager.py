@@ -24,7 +24,11 @@ def load_pickle(fl_nm):
         pkl_file = open(pth_pickl + fl_nm, 'rb')
         data1 = pickle.load(pkl_file)
         pkl_file.close()
-
+    except:
+        print('Missing pickle table:', fl_nm)
+        # pkl_file = open(file, 'wb')
+        data1 = ''
+    return data1
 
 
 def get_current_tags(img_path=''):
