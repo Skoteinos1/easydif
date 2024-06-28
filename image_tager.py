@@ -17,6 +17,16 @@ def save_pickle(file, data1):
     pickle.dump(data1, pkl_file)
     pkl_file.close()
 
+def load_pickle(fl_nm):
+    if '.pkl' not in fl_nm:
+        fl_nm += '.pkl'
+    try:
+        pkl_file = open(pth_pickl + fl_nm, 'rb')
+        data1 = pickle.load(pkl_file)
+        pkl_file.close()
+
+
+
 def get_current_tags(img_path=''):
     global current_img_tags
 
