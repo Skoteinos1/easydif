@@ -9,6 +9,21 @@ import pickle
 
 img_x_size = 1270
 img_y_size = 920
+# special_tags are tags which I use as placeholer, they will not removed if I accidentaly copy them to output filed
+special_tags = ['MAIN', 'MOAT', 'CONVNEXT', 'PREVIOUS', 'DONE', 'PROBABLY']
+
+# Define next variables for yourself, based on your needs
+
+# repl_dic  tags which will be replaced/removed
+repl_dic = {'_': ' ', '\n': ',', 'multicolored hair': 'two-tone hair', 'realistic': '', 'photorealistic': ''}
+# pair_tags tags which expect other tag to be included
+pair_tags = {' grin,': 'teeth, ', ' watch,': 'wristwatch, ', 'wristwatch,': ' watch, ', }
+# unwantd_list which will be removed from suggestions
+unwantd_list = 'uncensored,censored,collarbone,traditional media,mixed media,' 
+# Tags whihc should be always included
+recomended_tags = ['1girl, ', 'solo, ', 'looking at viewer, ', ]
+# Has to be defined because of debug bug
+pth_pickl = '/PATH/TO/PYTHON/FILE/'  
 
 def save_pickle(file, data1):
     if '.pkl' not in file:
@@ -60,14 +75,18 @@ def get_current_tags(img_path=''):
         file1.close()
     except:
         tags_d = ''
-    probable_tags = last_pic_tags + ', ' + pre_last_pic_tags
+    probable_tags = ''
+    for i in range(len(last_pic_tags)-1,-1,-1):
+        probable_tags += last_pic_tags[i] + ', '
+    just_used_tags = probable_tags
     probable_tags = probable_tags.split(',')
     probable_tags = [x.strip() for x in probable_tags if x.strip()]
     probable_tags = [x for x in probable_tags if x in tags or x in tags_m or x in tags_c]
     probable_tags = ', '.join(probable_tags)
     tags = ',PROBABLY,' + probable_tags + ',DONE,' + tags_d + ',MAIN,' + tags + ',MOAT,' + tags_m + ',CONVNEXT,' + tags_c + ',PREVIOUS,' + last_pic_tags + ', ' + pre_last_pic_tags
     current_img_tags = tags
-    repl_dic = {'_': ' ', '\n': ',', 'multicolored hair': 'two-tone hair', 'tatoo on foot': 'tattoo on foot', 'tatoo on belly': 'tattoo on stomach', 'large breasts': '', 'medium breasts': '', 'realistic': '', 'photorealistic': ''}    
+    
+    # Replaces tags with other tags
     for words in repl_dic:
         tags = tags.replace(words, repl_dic[words])
 
@@ -75,12 +94,12 @@ def get_current_tags(img_path=''):
     tg_lst = [x.strip() for x in tg_lst if x.strip()]
     tg_lst = list(dict.fromkeys(tg_lst))
     tags = ', '.join(tg_lst) # list to string
-
+    
     for word in special_tags:
         tags = tags.replace(word, '\n'+word)  
 
     tags += ', '
     tag_suggest = ''
-    for tg in [ 'solo, ', 'brown eyes, ', 'two-tone hair, ', 'looking at viewer, ', 'watermark, ']:
+    for tg in recomended_tags:
         if tg not in tags:
             tag_suggest += tg
