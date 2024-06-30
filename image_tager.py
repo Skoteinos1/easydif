@@ -103,3 +103,7 @@ def get_current_tags(img_path=''):
     for tg in recomended_tags:
         if tg not in tags:
             tag_suggest += tg
+    # Suggest tag if there is another tag from pair present
+    for words in pair_tags:
+        if words in tags and pair_tags[words] not in tags:
+            tag_suggest += pair_tags[words]
