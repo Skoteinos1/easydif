@@ -107,3 +107,8 @@ def get_current_tags(img_path=''):
     for words in pair_tags:
         if words in tags and pair_tags[words] not in tags:
             tag_suggest += pair_tags[words]
+
+    generated_tags.delete(0.0, END)
+    generated_tags.insert(END, tags)
+    suggestions_note.delete(0.0, END)
+    suggestions_note.insert(END, tag_suggest)
