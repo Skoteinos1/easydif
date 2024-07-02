@@ -112,3 +112,13 @@ def get_current_tags(img_path=''):
     generated_tags.insert(END, tags)
     suggestions_note.delete(0.0, END)
     suggestions_note.insert(END, tag_suggest)
+
+def reorder_tags(s):
+    s = s.split(',')
+    s = [x.strip() for x in s if x.strip()]
+    new_roder = []
+    for tag in tag_order_list:
+        if tag in s:
+            new_roder.append(tag)
+        elif re.match(r'([A-Z]+_?)+', tag):
+            new_roder.append('\n')
