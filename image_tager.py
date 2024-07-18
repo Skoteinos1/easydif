@@ -122,3 +122,7 @@ def reorder_tags(s):
             new_roder.append(tag)
         elif re.match(r'([A-Z]+_?)+', tag):
             new_roder.append('\n')
+    new_roder.append('\n')
+    for tag in s:
+        if tag not in new_roder:
+            new_roder.append(tag)
