@@ -126,3 +126,6 @@ def reorder_tags(s):
     for tag in s:
         if tag not in new_roder:
             new_roder.append(tag)
+    new_roder = ', '.join(new_roder) 
+    new_roder = new_roder.replace('\n, ', '\n').replace('\n\n\n', '\n').replace('\n\n', '\n').replace('\n\n', '\n')
+    return new_roder.strip() + ' \n'
