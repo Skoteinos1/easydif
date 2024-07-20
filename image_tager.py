@@ -129,3 +129,10 @@ def reorder_tags(s):
     new_roder = ', '.join(new_roder) 
     new_roder = new_roder.replace('\n, ', '\n').replace('\n\n\n', '\n').replace('\n\n', '\n').replace('\n\n', '\n')
     return new_roder.strip() + ' \n'
+
+def save_tags():
+    global image_index
+    global last_pic_tags
+    img_path = images_list[image_index]
+    img_path = img_path.split('.')
+    new_tags = curent_tag_list.get(0.0, END).strip()
