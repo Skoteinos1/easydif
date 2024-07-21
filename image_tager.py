@@ -136,3 +136,9 @@ def save_tags():
     img_path = images_list[image_index]
     img_path = img_path.split('.')
     new_tags = curent_tag_list.get(0.0, END).strip()
+    # adds all tags together into one file
+    f = open((img_path[0] + '.txt').replace(img_group_path, pth2+'all_tags/'), "w")
+    f.write(current_img_tags)
+    f.close()
+    for word in special_tags:
+        new_tags = new_tags.replace(word, '')  
