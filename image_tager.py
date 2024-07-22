@@ -141,4 +141,10 @@ def save_tags():
     f.write(current_img_tags)
     f.close()
     for word in special_tags:
-        new_tags = new_tags.replace(word, '')  
+        new_tags = new_tags.replace(word, '')
+    new_tags = new_tags.replace('\n', ',')
+    tg_lst = new_tags.split(',')
+    tg_lst = [x.strip() for x in tg_lst if x.strip()]
+    tg_lst = list(dict.fromkeys(tg_lst))
+    new_tags = ', '.join(tg_lst) # list to string
+
