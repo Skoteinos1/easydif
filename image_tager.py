@@ -148,3 +148,11 @@ def save_tags():
     tg_lst = list(dict.fromkeys(tg_lst))
     new_tags = ', '.join(tg_lst) # list to string
 
+    if new_tags:
+        f = open((img_path[0] + '.txt').replace(img_group_path, pth2), "w")
+        f.write(new_tags)
+        f.close()
+        # print(new_tags)
+
+
+
