@@ -153,6 +153,10 @@ def save_tags():
         f.write(new_tags)
         f.close()
         # print(new_tags)
-
+        shutil.copyfile(images_list[image_index], images_list[image_index].replace(img_group_path, pth2))
+        last_pic_tags.append(new_tags)
+        next_img()
+    while len(last_pic_tags) > number_of_sets_as_suggestions:
+        last_pic_tags.pop(0)
 
 
