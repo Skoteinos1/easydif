@@ -160,3 +160,9 @@ def save_tags():
         last_pic_tags.pop(0)
 
 
+def show_image(x):
+    for widget in img_frame.winfo_children():
+        widget.destroy()
+    img = Image.open(x)
+
+
