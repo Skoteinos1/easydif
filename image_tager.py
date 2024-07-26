@@ -165,4 +165,11 @@ def show_image(x):
         widget.destroy()
     img = Image.open(x)
 
+    base_width = img_x_size
+    base_height = img_y_size
+    wpercent = (base_width / float(img.size[0]))
+    hpercent = (base_height / float(img.size[1]))
+    hsize = int((float(img.size[1]) * float(wpercent)))
+    wsize = int((float(img.size[0]) * float(hpercent)))
+
 
