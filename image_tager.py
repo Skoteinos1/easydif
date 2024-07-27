@@ -171,5 +171,11 @@ def show_image(x):
     hpercent = (base_height / float(img.size[1]))
     hsize = int((float(img.size[1]) * float(wpercent)))
     wsize = int((float(img.size[0]) * float(hpercent)))
+    if hsize <= img_y_size:
+        img = img.resize((base_width, hsize), Image.Resampling.LANCZOS)
+    else:
+        img = img.resize((wsize, base_height), Image.Resampling.LANCZOS)
+    img = ImageTk.PhotoImage(img)
+    panel = Label(img_frame, image=img, height=img_y_size, width=img_x_size)
 
 
