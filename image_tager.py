@@ -177,5 +177,10 @@ def show_image(x):
         img = img.resize((wsize, base_height), Image.Resampling.LANCZOS)
     img = ImageTk.PhotoImage(img)
     panel = Label(img_frame, image=img, height=img_y_size, width=img_x_size)
+    panel.image = img
+    panel.pack()
+    file_note.delete(0.0, END)
+    file_note.insert(END, x.replace(pth, ''))
+    get_current_tags(x)
 
 
