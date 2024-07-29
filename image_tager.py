@@ -184,3 +184,8 @@ def show_image(x):
     get_current_tags(x)
 
 
+def next_img(which_folder=''):
+    global image_index
+    if which_folder:
+        shutil.copyfile(images_list[image_index], images_list[image_index].replace(img_group_path, pth2+which_folder))
+
