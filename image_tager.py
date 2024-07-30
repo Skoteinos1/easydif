@@ -188,4 +188,9 @@ def next_img(which_folder=''):
     global image_index
     if which_folder:
         shutil.copyfile(images_list[image_index], images_list[image_index].replace(img_group_path, pth2+which_folder))
+    if image_index +1 in images_list:
+        image_index +=1
+    show_image(images_list[image_index])
+    # print(image_index, len(images_list)-image_index)
+    lbl_notif.config(text = str(image_index) +  ' ' + str(len(images_list)-image_index))
 
