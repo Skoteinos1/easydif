@@ -194,3 +194,10 @@ def next_img(which_folder=''):
     # print(image_index, len(images_list)-image_index)
     lbl_notif.config(text = str(image_index) +  ' ' + str(len(images_list)-image_index))
 
+
+def prev_img():
+    global image_index
+    image_index -=1 if image_index > 0 else 0
+    show_image(images_list[image_index])
+    lbl_notif.config(text = str(image_index) +  ' ' + str(len(images_list)-image_index))
+
