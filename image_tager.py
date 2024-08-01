@@ -201,3 +201,8 @@ def prev_img():
     show_image(images_list[image_index])
     lbl_notif.config(text = str(image_index) +  ' ' + str(len(images_list)-image_index))
 
+
+def moat_mess():
+    # If Moat tagger did lousy job, this will mark tags for second tagging
+    next_img('moat/')
+
