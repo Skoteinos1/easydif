@@ -206,3 +206,8 @@ def moat_mess():
     # If Moat tagger did lousy job, this will mark tags for second tagging
     next_img('moat/')
 
+
+def conv_mess():
+    # If Convnext tagger did lousy job, this will mark tags for second tagging
+    next_img('conv/')
+
