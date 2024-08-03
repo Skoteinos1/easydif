@@ -211,3 +211,11 @@ def conv_mess():
     # If Convnext tagger did lousy job, this will mark tags for second tagging
     next_img('conv/')
 
+
+def cln_tags():
+    # Cleans suggested tags list
+    new_tags = curent_tag_list.get(0.0, END).strip()
+    old_tags = generated_tags.get(0.0, END).strip()
+    new_tags = new_tags.split(',')
+    old_tags = old_tags.split(',')
+    new_tags = [x.strip() for x in new_tags if x.strip()]
