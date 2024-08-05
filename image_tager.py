@@ -218,4 +218,15 @@ def cln_tags():
     old_tags = generated_tags.get(0.0, END).strip()
     new_tags = new_tags.split(',')
     old_tags = old_tags.split(',')
+
+    old_tags = [x.strip() for x in old_tags if x.strip() and x.strip() not in new_tags]
+    old_tags = list(dict.fromkeys(old_tags))
+
+    # Check for over tagging
+    word_counter = ' '.join(new_tags)
+    word_counter = word_counter.split(' ')
+    word_counter = [x for x in word_counter if word_counter.count(x) > 1]
+    word_counter = list(dict.fromkeys(word_counter))
     new_tags = [x.strip() for x in new_tags if x.strip()]
+
+
