@@ -218,6 +218,7 @@ def cln_tags():
     old_tags = generated_tags.get(0.0, END).strip()
     new_tags = new_tags.split(',')
     old_tags = old_tags.split(',')
+    new_tags = [x.strip() for x in new_tags if x.strip()]
 
     old_tags = [x.strip() for x in old_tags if x.strip() and x.strip() not in new_tags]
     old_tags = list(dict.fromkeys(old_tags))
@@ -227,6 +228,10 @@ def cln_tags():
     word_counter = word_counter.split(' ')
     word_counter = [x for x in word_counter if word_counter.count(x) > 1]
     word_counter = list(dict.fromkeys(word_counter))
-    new_tags = [x.strip() for x in new_tags if x.strip()]
+
+    tag_suggest = ''
+    for tg in recomended_tags:
+        if tg not in new_tags:
+            tag_suggest += tg + ', '
 
 
