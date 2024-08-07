@@ -233,5 +233,10 @@ def cln_tags():
     for tg in recomended_tags:
         if tg not in new_tags:
             tag_suggest += tg + ', '
+    for words in pair_tags:
+        if words in new_tags and pair_tags[words] not in new_tags:
+            tag_suggest += pair_tags[words]+ ', '
+    suggestions_note.delete(0.0, END)
+    suggestions_note.insert(END, tag_suggest)
 
 
