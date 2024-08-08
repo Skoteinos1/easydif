@@ -238,5 +238,8 @@ def cln_tags():
             tag_suggest += pair_tags[words]+ ', '
     suggestions_note.delete(0.0, END)
     suggestions_note.insert(END, tag_suggest)
+    for tg in word_counter:
+        suggestions_note.insert(END, tg + ', ', 'alert')
+    suggestions_note.insert(END, len(new_tags), 'alert')
 
 
