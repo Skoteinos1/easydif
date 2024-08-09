@@ -242,4 +242,9 @@ def cln_tags():
         suggestions_note.insert(END, tg + ', ', 'alert')
     suggestions_note.insert(END, len(new_tags), 'alert')
 
+    # Removes unwanteg tags
+    unwanted_list = unwantd_list.split(',')
+    old_tags = [ele for ele in old_tags if ele not in unwanted_list]
+   
+
 
