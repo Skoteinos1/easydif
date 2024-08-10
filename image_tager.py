@@ -246,5 +246,9 @@ def cln_tags():
     unwanted_list = unwantd_list.split(',')
     old_tags = [ele for ele in old_tags if ele not in unwanted_list]
    
-
+    # Removes tag from generated_tags if other is present in curent_tag_list 
+    for key in remove_if:
+        if isinstance(remove_if[key], str):
+            if key in new_tags and remove_if[key] in old_tags:
+                old_tags.remove(remove_if[key])
 
