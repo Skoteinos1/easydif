@@ -251,4 +251,8 @@ def cln_tags():
         if isinstance(remove_if[key], str):
             if key in new_tags and remove_if[key] in old_tags:
                 old_tags.remove(remove_if[key])
+        elif isinstance(remove_if[key], list):
+            for t in remove_if[key]:
+                if key in new_tags and t in old_tags:
+                    old_tags.remove(t)
 
