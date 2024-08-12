@@ -256,3 +256,9 @@ def cln_tags():
                 if key in new_tags and t in old_tags:
                     old_tags.remove(t)
 
+    old_tags = ', '.join(old_tags) # list to string
+    for word in special_tags:
+        old_tags = old_tags.replace(word, '\n'+word)
+    generated_tags.delete(0.0, END)
+    generated_tags.insert(END, old_tags.strip()+', ')
+
