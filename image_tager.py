@@ -262,3 +262,10 @@ def cln_tags():
     generated_tags.delete(0.0, END)
     generated_tags.insert(END, old_tags.strip()+', ')
 
+
+def on_closing():
+    global current_img_tags
+    global last_pic_tags
+    save_pickle('image_tagger_tags', {'current_img_tags': current_img_tags, 'last_pic_tags': last_pic_tags})
+    root.destroy()
+
