@@ -223,6 +223,14 @@ def cln_tags():
     old_tags = [x.strip() for x in old_tags if x.strip() and x.strip() not in new_tags]
     old_tags = list(dict.fromkeys(old_tags))
 
+    # marks checkbuttons
+    global checkbutton_tags
+    for key in checkbutton_tags:
+        if key in new_tags:
+            checkbutton_tags[key][0].set(True)
+        else:
+            checkbutton_tags[key][0].set(False)
+
     # Check for over tagging
     word_counter = ' '.join(new_tags)
     word_counter = word_counter.split(' ')
@@ -255,7 +263,7 @@ def cln_tags():
             for t in remove_if[key]:
                 if key in new_tags and t in old_tags:
                     old_tags.remove(t)
-
+    
     old_tags = ', '.join(old_tags) # list to string
     for word in special_tags:
         old_tags = old_tags.replace(word, '\n'+word)
