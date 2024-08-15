@@ -277,3 +277,8 @@ def on_closing():
     save_pickle('image_tagger_tags', {'current_img_tags': current_img_tags, 'last_pic_tags': last_pic_tags})
     root.destroy()
 
+
+def apply_checked_tags():
+    # Manipulate tag list with checkbuttons
+    new_tags = curent_tag_list.get(0.0, END).strip()
+    new_tags = new_tags.replace('\n', ',')
