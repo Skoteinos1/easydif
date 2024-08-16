@@ -282,3 +282,6 @@ def apply_checked_tags():
     # Manipulate tag list with checkbuttons
     new_tags = curent_tag_list.get(0.0, END).strip()
     new_tags = new_tags.replace('\n', ',')
+    new_tags = new_tags.split(',')
+    new_tags = [x.strip() for x in new_tags if x.strip()]
+    new_tags = list(dict.fromkeys(new_tags))
