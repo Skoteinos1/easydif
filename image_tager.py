@@ -285,3 +285,8 @@ def apply_checked_tags():
     new_tags = new_tags.split(',')
     new_tags = [x.strip() for x in new_tags if x.strip()]
     new_tags = list(dict.fromkeys(new_tags))
+
+    for key in checkbutton_tags:
+        # if checkbutton_tags[key][0].get() and :
+        #     print(key)
+        
