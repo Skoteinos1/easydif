@@ -289,4 +289,7 @@ def apply_checked_tags():
     for key in checkbutton_tags:
         # if checkbutton_tags[key][0].get() and :
         #     print(key)
-        
+        if not checkbutton_tags[key][0].get() and key in new_tags:
+            new_tags.remove(key)
+        elif checkbutton_tags[key][0].get() and key not in new_tags:
+            new_tags.append(key)
