@@ -293,3 +293,9 @@ def apply_checked_tags():
             new_tags.remove(key)
         elif checkbutton_tags[key][0].get() and key not in new_tags:
             new_tags.append(key)
+            
+    new_tags = ', '.join(new_tags) # list to string
+    new_tags = reorder_tags(new_tags)
+    curent_tag_list.delete(0.0, END)
+    curent_tag_list.insert(END, new_tags)
+
