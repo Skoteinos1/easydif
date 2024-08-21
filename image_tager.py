@@ -304,3 +304,7 @@ images_list = {}
 image_index = -1
 list_of_done_stuff = []
 list_of_tag_files = []
+
+for path, subdirs, files in os.walk(pth2):
+    for fl in files:
+        list_of_done_stuff.append(fl)
