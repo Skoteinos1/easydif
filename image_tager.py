@@ -308,3 +308,8 @@ list_of_tag_files = []
 for path, subdirs, files in os.walk(pth2):
     for fl in files:
         list_of_done_stuff.append(fl)
+
+key = 0
+if file_list_from_txt:
+    for fl in im_lst:
+        if fl not in list_of_done_stuff:
