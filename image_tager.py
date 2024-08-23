@@ -313,3 +313,6 @@ key = 0
 if file_list_from_txt:
     for fl in im_lst:
         if fl not in list_of_done_stuff:
+             # if not os.path.exists(pth2+fl):
+            images_list[key] = pth+fl
+            key += 1
