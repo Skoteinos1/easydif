@@ -316,3 +316,7 @@ if file_list_from_txt:
              # if not os.path.exists(pth2+fl):
             images_list[key] = pth+fl
             key += 1
+else:
+    for path, subdirs, files in os.walk(img_group_path):
+        key = 0
+        files.sort()
