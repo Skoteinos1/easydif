@@ -320,3 +320,7 @@ else:
     for path, subdirs, files in os.walk(img_group_path):
         key = 0
         files.sort()
+        for fl in files:
+            if fl.endswith('.jpg') or fl.endswith('.png') or fl.endswith('.jpeg'):
+                if fl not in list_of_done_stuff:
+                    # if not os.path.exists(pth2+fl):
