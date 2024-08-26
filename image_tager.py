@@ -324,3 +324,7 @@ else:
             if fl.endswith('.jpg') or fl.endswith('.png') or fl.endswith('.jpeg'):
                 if fl not in list_of_done_stuff:
                     # if not os.path.exists(pth2+fl):
+                    images_list[key] = path+fl
+                    key += 1
+                else:
+                    print('Done  ', fl)
