@@ -328,3 +328,7 @@ else:
                     key += 1
                 else:
                     print('Done  ', fl)
+            if fl.endswith('.txt'):
+                list_of_tag_files.append(fl)
+        break
+
