@@ -332,3 +332,9 @@ else:
                 list_of_tag_files.append(fl)
         break
 
+tag_list = ''
+if tags_from_dictionary:
+    for key in tags_dic: 
+        tag_list += tags_dic[key]['DONE'] + ','
+        # for variant in tags_dic[key]:
+        #     tag_list += tags_dic[key][variant] + ','
