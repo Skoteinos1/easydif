@@ -338,3 +338,7 @@ if tags_from_dictionary:
         tag_list += tags_dic[key]['DONE'] + ','
         # for variant in tags_dic[key]:
         #     tag_list += tags_dic[key][variant] + ','
+else:
+    for path, subdirs, files in os.walk(img_group_path):
+        for fl in files:
+            if '.txt' in fl:
