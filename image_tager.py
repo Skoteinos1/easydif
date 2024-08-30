@@ -342,3 +342,7 @@ else:
     for path, subdirs, files in os.walk(img_group_path):
         for fl in files:
             if '.txt' in fl:
+                file1 = open(path+'/'+fl, "r")
+                tags = file1.read()  # reads until EOF
+                file1.close()
+                tag_list += tags + ','
