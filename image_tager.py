@@ -349,4 +349,7 @@ else:
     for path, subdirs, files in os.walk(pth2):
         for fl in files:
             if '.txt' in fl and fl in list_of_tag_files:
-
+                file1 = open(path+'/'+fl, "r")
+                tags = file1.read()  # reads until EOF
+                file1.close()
+                tag_list += tags + ','
